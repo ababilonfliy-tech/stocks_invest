@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stocks Invest - 1500% Return Plan</title>
+    <style>
+        :root {
+            --primary: #ffcc00; /* Metallic Gold Accent */
+            --bg-dark: #070b14;
+            --card-bg: #0f172a;
+            --text-light: #ffffff;
+            --text-gray: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(255, 204, 0, 0.08);
+            border: 1px solid rgba(255, 204, 0, 0.1);
+            box-sizing: border-box;
+            margin: 15px;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 28px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            color: #00ff88;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #070b14;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 12px rgba(255, 204, 0, 0.25);
+        }
+
+        .results {
+            background: #070b14;
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+            text-align: left;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .result-row:last-child {
+            margin-bottom: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .payment-methods {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .payment-title {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .method {
+            background: #070b14;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .method-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .method-holder {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            text-align: center;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            transition: 0.3s ease;
+        }
+
+        .btn-submit {
+            background: linear-gradient(45deg, #ffaa00, #ffcc00);
+            color: #000;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-telegram {
+            background: #0088cc;
+            color: white;
+        }
+
+        .btn-whatsapp:hover, .btn-telegram:hover {
+            opacity: 0.9;
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Stocks Invest</h2>
+    <div class="subtitle">Low investment big profit</div>
+
+    <!-- Calculator Section -->
+    <div class="input-group">
+        <label for="amount">Apni Investment Amount Likhein (PKR):</label>
+        <input type="number" id="amount" placeholder="Eg. 1000" oninput="calculateProfit()">
+    </div>
+
+    <div class="results">
+        <div class="result-row">
+            <span>Daily Income:</span>
+            <span id="daily">0.00 PKR</span>
+        </div>
+        <div class="result-row">
+            <span>Monthly Profit:</span>
+            <span id="monthly">0.00 PKR</span>
+        </div>
+        <div class="result-row">
+            <span>1 Saal Ka Profit (1500%):</span>
+            <span id="yearly">0.00 PKR</span>
+        </div>
+        <div class="result-row">
+            <span>5 Saal Baad Total Wapsi:</span>
+            <span id="total5years">0.00 PKR</span>
+        </div>
+    </div>
+
+    <!-- Payment Details Section -->
+    <div class="payment-methods">
+        <div class="payment-title">Deposit Payment Details</div>
+        
+        <div class="method">
+            <div class="method-header">
+                <span>JazzCash:</span>
+                <span style="color: #ffcc00;">03277388437</span>
+            </div>
+            <div class="method-holder">Account Title: Muhammad Hassan</div>
+        </div>
+
+        <div class="method">
+            <div class="method-header">
+                <span>Easypaisa:</span>
+                <span style="color: #25D366;">03234134753</span>
+            </div>
+            <div class="method-holder">Account Title: Muhammad Hassan</div>
+        </div>
+    </div>
+
+    <!-- Record Saving Form -->
+    <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn btn-submit">Paisa Bhej Kar Form Submit Krain</a>
+
+    <!-- Social Contacts -->
+    <div class="social-buttons">
+        <a href="https://wa.me/923234134753" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+        <a href="https://t.me/drhassanshah" target="_blank" class="btn btn-telegram">Telegram</a>
+    </div>
+</div>
+
+<script>
+    function calculateProfit() {
+        let amount = parseFloat(document.getElementById('amount').value);
+        
+        if (isNaN(amount) || amount <= 0) {
+            document.getElementById('daily').innerText = "0.00 PKR";
+            document.getElementById('monthly').innerText = "0.00 PKR";
+            document.getElementById('yearly').innerText = "0.00 PKR";
+            document.getElementById('total5years').innerText = "0.00 PKR";
+            return;
+        }
+
+        // 1500% Annual Calculation Formula
+        let yearlyProfit = amount * 15; 
+        let monthlyProfit = yearlyProfit / 12;
+        let dailyProfit = yearlyProfit / 365;
+        let totalReturn5Years = amount + (yearlyProfit * 5);
+
+        // Display results on webpage
+        document.getElementById('daily').innerText = dailyProfit.toFixed(2) + " PKR";
+        document.getElementById('monthly').innerText = monthlyProfit.toFixed(2) + " PKR";
+        document.getElementById('yearly').innerText = yearlyProfit.toFixed(2) + " PKR";
+        document.getElementById('total5years').innerText = totalReturn5Years.toFixed(2) + " PKR";
+    }
+</script>
+
+</body>
+      </html>  
