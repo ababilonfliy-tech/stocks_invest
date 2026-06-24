@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stocks Invest - 1500% Return Plan</title>
+    <title>Stocks Invest - Mariyam Nawaz Plan</title>
     <style>
         :root {
             --primary: #ffcc00; /* Metallic Gold Accent */
@@ -11,6 +11,7 @@
             --card-bg: #0f172a;
             --text-light: #ffffff;
             --text-gray: #94a3b8;
+            --danger: #ff4444;
         }
 
         body {
@@ -36,6 +37,33 @@
             box-sizing: border-box;
             margin: 15px;
             text-align: center;
+        }
+
+        /* Profile Image Container */
+        .profile-card {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 15px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.2);
+            object-fit: cover;
+        }
+
+        .leader-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
         }
 
         h2 {
@@ -110,15 +138,16 @@
             color: #00ff88;
         }
 
-        .payment-methods {
+        .section-box {
             background: rgba(255, 255, 255, 0.02);
             padding: 18px;
             border-radius: 16px;
             margin-bottom: 25px;
             text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .payment-title {
+        .section-title {
             color: var(--primary);
             font-size: 16px;
             font-weight: bold;
@@ -133,7 +162,6 @@
             border-radius: 10px;
             margin-bottom: 10px;
             font-size: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .method-header {
@@ -147,6 +175,14 @@
         .method-holder {
             font-size: 12px;
             color: var(--text-gray);
+        }
+
+        .rules-list {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
         }
 
         .btn {
@@ -163,16 +199,21 @@
             transition: 0.3s ease;
         }
 
-        .btn-submit {
+        .btn-deposit {
             background: linear-gradient(45deg, #ffaa00, #ffcc00);
             color: #000;
             border: none;
-            cursor: pointer;
         }
 
-        .btn-submit:hover {
+        .btn-withdraw {
+            background: linear-gradient(45deg, #ff4444, #cc0000);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-deposit:hover, .btn-withdraw:hover {
             opacity: 0.9;
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
         }
 
         .social-buttons {
@@ -193,13 +234,18 @@
 
         .btn-whatsapp:hover, .btn-telegram:hover {
             opacity: 0.9;
-            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- Mariyam Nawaz Section -->
+    <div class="profile-card">
+        <img src="1000145108.jpg" alt="Mariyam Nawaz" class="profile-img">
+        <div class="leader-name">Mariyam Nawaz</div>
+    </div>
+
     <h2>Stocks Invest</h2>
     <div class="subtitle">Low investment big profit</div>
 
@@ -229,8 +275,8 @@
     </div>
 
     <!-- Payment Details Section -->
-    <div class="payment-methods">
-        <div class="payment-title">Deposit Payment Details</div>
+    <div class="section-box">
+        <div class="section-title">Deposit Payment Details</div>
         
         <div class="method">
             <div class="method-header">
@@ -249,8 +295,21 @@
         </div>
     </div>
 
-    <!-- Record Saving Form -->
-    <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn btn-submit">Paisa Bhej Kar Form Submit Krain</a>
+    <!-- Withdrawal Rules & Request Section -->
+    <div class="section-box" style="border-color: rgba(255, 68, 68, 0.2);">
+        <div class="section-title" style="color: var(--danger);">Withdrawal System</div>
+        <ul class="rules-list">
+            <li>Withdrawal Process Time: <strong>24 Hours</strong></li>
+            <li>Withdrawal Days: <strong>Monday to Friday</strong></li>
+            <li>Principal amount can be withdrawn after 5 years.</li>
+        </ul>
+    </div>
+
+    <!-- Actions Buttons -->
+    <a href="YOUR_DEPOSIT_FORM_LINK" target="_blank" class="btn btn-deposit">Paisa Bhej Kar Deposit Form Bharein</a>
+    
+    <!-- Withdrawal Request Link -->
+    <a href="https://wa.me/923234134753?text=Hi,%20I%20want%20a%20withdrawal%20from%20Stocks%20Invest." target="_blank" class="btn btn-withdraw">Apply For Withdrawal</a>
 
     <!-- Social Contacts -->
     <div class="social-buttons">
@@ -271,13 +330,11 @@
             return;
         }
 
-        // 1500% Annual Calculation Formula
         let yearlyProfit = amount * 15; 
         let monthlyProfit = yearlyProfit / 12;
         let dailyProfit = yearlyProfit / 365;
         let totalReturn5Years = amount + (yearlyProfit * 5);
 
-        // Display results on webpage
         document.getElementById('daily').innerText = dailyProfit.toFixed(2) + " PKR";
         document.getElementById('monthly').innerText = monthlyProfit.toFixed(2) + " PKR";
         document.getElementById('yearly').innerText = yearlyProfit.toFixed(2) + " PKR";
@@ -286,4 +343,4 @@
 </script>
 
 </body>
-      </html>  
+    </html>
